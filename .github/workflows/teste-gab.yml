@@ -1,0 +1,20 @@
+name: Greetings
+
+on: [push]
+
+jobs:
+  teste:
+    runs-on: ubuntu-latest
+    steps:
+      - name: setup node
+        uses: actions/setupnode@v3
+        with: 
+          node-version: 16.13.x
+          cache: yarn
+      
+      - name: instalar pacotes
+        run: yarn install
+      
+      - name: rodar testes
+        run: yarn run test
+        
